@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HelloWorld
 {
-    class Message
+    public class Message
     {
         private int matin;
         private int midi;
@@ -17,15 +17,15 @@ namespace HelloWorld
 
         }
 
-        public Message(int matin = 9, int midi = 13, int soir = 18)
+        public Message(int Pmatin = 9, int Pmidi = 13, int Psoir = 18)
         {
-            this.matin = matin;
-            this.midi = midi;
-            this.soir = soir;
+            matin = Pmatin;
+            midi = Pmidi;
+            soir = Psoir;
         }
 
 
-        public String MyProperty
+        public String PropertyMDate
         {
             get
             {
@@ -36,26 +36,26 @@ namespace HelloWorld
 
                     if (string.IsNullOrEmpty(messageDate))
                     {
-                        if (localDate.DayOfWeek == DayOfWeek.Saturday || localDate.DayOfWeek == DayOfWeek.Sunday && localDate.Hour > this.soir && localDate.Hour <= this.matin)
+                        if (localDate.DayOfWeek == DayOfWeek.Saturday || localDate.DayOfWeek == DayOfWeek.Sunday && localDate.Hour > soir && localDate.Hour <= matin)
                         {
                             messageDate = String.Format("tu es en week");
                         }
                         else
                         {
-                            if (localDate.Hour >= this.matin && localDate.Hour < this.midi)
+                            if (localDate.Hour >= matin && localDate.Hour < midi)
                             {
                                 messageDate = "Bonjour";
                             }
-                            else if (localDate.Hour >= this.midi && localDate.Hour <= this.soir)
+                            else if (localDate.Hour >= midi && localDate.Hour <= soir)
                             {
                                 messageDate = "Bon après-midi";
                             }
-                            else if (localDate.Hour > this.soir && localDate.Hour <= this.matin)
+                            else if (localDate.Hour > soir && localDate.Hour <= matin)
                             {
                                 messageDate = "Bonsoir";
                             }
                         }
-                    resultat = String.Format("Username : {0} {1} {2} {3}", Environment.UserName, messageDate, "nous sommes le : ", localDate);
+                        resultat = String.Format("Username : {0} {1} {2} {3}", Environment.UserName, messageDate, "nous sommes le : ", localDate);
                     }
                     return resultat;
             }

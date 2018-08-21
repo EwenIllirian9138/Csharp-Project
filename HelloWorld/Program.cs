@@ -14,7 +14,7 @@ namespace HelloWorld
             Message message = new Message(9,13,18);
             do
             {
-                Console.WriteLine(message.MyProperty);
+                Console.WriteLine(message.PropertyMDate);
             } while (Console.ReadLine() != "exit");
         }
     }
